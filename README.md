@@ -467,7 +467,7 @@
           <div class="balance-label">Real Money</div>
         </div>
         <div style="display:flex; gap:0.4rem;">
-          <button class="btn btn--ghost" id="add-Real Money-btn">+ 500 Real Money</button>
+          <button class="btn btn--ghost" id="add-Real Money-btn"> +500 Real Money</button> upi on - jaatdevta@ptaxis
           <button class="btn btn--ghost" id="reset-btn">Reset</button>
         </div>
       </div>
