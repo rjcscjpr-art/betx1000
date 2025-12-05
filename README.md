@@ -1,2 +1,236 @@
-# betx1000
-BetX1000 – Demo / Practice Betting Platform for Learning Odds &amp; Risk with Virtual Coins. Safe, Educational &amp; No-Gambling System.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BetX1000 - Practice Betting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  :root {
+    --accent: #00ffa9;
+    --accent2: #ffb347;
+    --bg: #050816;
+    --card: #11162a;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: #fff;
+  }
+  a { text-decoration: none; color: var(--accent); cursor: pointer; }
+  header {
+    padding: 15px 10%;
+    background: #0b1020;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hidden { display: none !important; }
+  .page { padding: 20px 10%; }
+
+  /* LOGIN */
+  .login-box {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid #222a40;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    border-radius: 8px;
+    background: #050a18;
+    border: 1px solid #333a55;
+    color: #fff;
+  }
+  .btn { background: var(--accent); color: #000; padding: 10px; border-radius: 999px; width: 100%; border: none; font-weight: bold; margin-top: 15px; cursor: pointer; }
+
+  /* DASHBOARD */
+  .wallet {
+    background: var(--accent);
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: #000;
+    font-weight: bold;
+  }
+  .bonus-btn {
+    border: 1px solid var(--accent);
+    background: transparent;
+    padding: 5px 12px;
+    border-radius: 999px;
+    color: var(--accent);
+    cursor: pointer;
+  }
+  .match-card {
+    background: var(--card);
+    border: 1px solid #222a40;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 12px;
+  }
+  .btn-bet {
+    margin-top: 10px;
+    background: var(--accent2);
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <strong style="color: var(--accent)">BetX1000</strong>
+  </div>
+  <div id="walletBox" class="wallet hidden">
+    Coins: <span id="coinCount">0</span>
+    <button id="bonusBtn" class="bonus-btn">Daily Bonus</button>
+  </div>
+</header>
+
+<!-- Landing Page -->
+<section id="homePage" class="page">
+  <h1 style="color: var(--accent)">BetX1000</h1>
+  <p>A practice betting platform using virtual coins only. No real money!</p>
+  <button class="btn" onclick="showLogin()">Start Practice</button>
+</section>
+
+<!-- Login Page -->
+<section id="loginPage" class="page hidden">
+  <div class="login-box">
+    <h2 style="color: var(--accent)">Login</h2>
+    <input placeholder="Mobile or Email">
+    <input type="password" placeholder="Password">
+    <button class="btn" onclick="doLogin()">Login</button>
+    <p style="margin-top:10px; font-size:12px">
+      <a onclick="showHome()">Back to Home</a>
+    </p>
+  </div>
+</section>
+
+<!-- Dashboard Page -->
+<section id="dashboardPage" class="page hidden">
+  <h2 style="color: var(--accent)">Available Matches</h2>
+
+  <div class="match-card">
+    IND vs AUS — Odds: 1.65
+    <button class="btn-bet" onclick="placeDemoBet(100)">Bet 100 Coins</button>
+  </div>
+
+  <div class="match-card">
+    RCB vs MI — Odds: 1.80
+    <button class="btn-bet" onclick="placeDemoBet(150)">Bet 150 Coins</button>
+  </div>
+
+  <div class="match-card">
+    CSK vs GT — Odds: 1.90
+    <button class="btn-bet" onclick="placeDemoBet(200)">Bet 200 Coins</button>
+  </div>
+
+  <p>
+    <a onclick="logout()">Logout</a>
+  </p>
+</section>
+
+<script>
+  const COIN_KEY = "betxCoins";
+  const BONUS_KEY = "betxBonusDate";
+
+  const SIGNUP_COINS = 1000;
+  const DAILY_BONUS = 100;
+
+  function showHome() {
+    homePage.classList.remove("hidden");
+    loginPage.classList.add("hidden");
+    dashboardPage.classList.add("hidden");
+    walletBox.classList.add("hidden");
+  }
+
+  function showLogin() {
+    loginPage.classList.remove("hidden");
+    homePage.classList.add("hidden");
+    dashboardPage.classList.add("hidden");
+    walletBox.classList.add("hidden");
+  }
+
+  function doLogin() {
+    if (!localStorage.getItem(COIN_KEY)) {
+      localStorage.setItem(COIN_KEY, SIGNUP_COINS);
+    }
+    loadCoins();
+    showDashboard();
+  }
+
+  function showDashboard() {
+    dashboardPage.classList.remove("hidden");
+    loginPage.classList.add("hidden");
+    homePage.classList.add("hidden");
+    walletBox.classList.remove("hidden");
+    updateBonusBtn();
+  }
+
+  function loadCoins() {
+    let coins = parseInt(localStorage.getItem(COIN_KEY)) || SIGNUP_COINS;
+    coinCount.textContent = coins;
+  }
+
+  function updateCoins(value) {
+    localStorage.setItem(COIN_KEY, value);
+    coinCount.textContent = value;
+  }
+
+  function placeDemoBet(amount) {
+    let coins = parseInt(localStorage.getItem(COIN_KEY));
+    if (coins < amount) {
+      alert("Not enough coins!");
+      return;
+    }
+    coins -= amount;
+    updateCoins(coins);
+    alert("Bet placed! (Demo Only)");
+  }
+
+  function canClaimBonus() {
+    const today = new Date().toDateString();
+    const last = localStorage.getItem(BONUS_KEY);
+    return last !== today;
+  }
+
+  function updateBonusBtn() {
+    if (canClaimBonus()) {
+      bonusBtn.disabled = false;
+      bonusBtn.textContent = `+${DAILY_BONUS} Bonus`;
+    } else {
+      bonusBtn.disabled = true;
+      bonusBtn.textContent = "Bonus Claimed";
+    }
+  }
+
+  bonusBtn.addEventListener("click", () => {
+    if (!canClaimBonus()) return;
+    let coins = parseInt(localStorage.getItem(COIN_KEY));
+    coins += DAILY_BONUS;
+    updateCoins(coins);
+    localStorage.setItem(BONUS_KEY, new Date().toDateString());
+    updateBonusBtn();
+    alert("Daily Bonus Added!");
+  });
+
+  function logout() {
+    showHome();
+  }
+
+  showHome();
+</script>
+
+</body>
+</html>
