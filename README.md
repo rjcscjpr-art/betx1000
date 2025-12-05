@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Online Betting – Real moneyOnly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="betting site with virtual coins & Real Money." />
+  <meta name="description" content="betting site with Real Money." />
 
   <style>
     :root {
@@ -447,27 +447,27 @@
     <div class="card">
       <div class="card-header">
         <div>
-          <div class="tagline">Practice • Virtual Coins Only</div>
-          <h1>Online Betting Demo</h1>
+          <div class="tagline"> • Real Real Money Only</div>
+          <h1>Online Betting Real</h1>
           <p class="subtext">
             Ye sirf <strong>learning &</strong> ke liye hai. Yahan jo bhi bet lagegi wo
-            <strong>virtual coins</strong> real money se hogi –.
+            <strong> Real Money</strong> real money se hogi –.
           </p>
         </div>
         <div>
-          <div class="badge badge--warning">Real Money • No Any Demo Only</div>
+          <div class="badge badge--warning">Real Money • No Any Real Only</div>
         </div>
       </div>
 
       <div class="balance-card">
         <div>
-	<div Make Payment Before on - jaatdevta@axis>
+	Make Payment Before on - jaatdevta@axis>
           <div class="balance-label">Current Balance</div>
           <div class="balance-value" id="balance">250</div>
-          <div class="balance-label">coins</div>
+          <div class="balance-label">Real Money</div>
         </div>
         <div style="display:flex; gap:0.4rem;">
-          <button class="btn btn--ghost" id="add-coins-btn">+ 500 Coins</button>
+          <button class="btn btn--ghost" id="add-Real Money-btn">+ 500 Real Money</button>
           <button class="btn btn--ghost" id="reset-btn">Reset</button>
         </div>
       </div>
@@ -499,7 +499,7 @@
         </div>
 
         <div class="input-group">
-          <label for="stake-input">Stake (coins)</label>
+          <label for="stake-input">Stake (Real Money)</label>
           <input
             id="stake-input"
             type="number"
@@ -511,7 +511,7 @@
 
         <div class="betslip-actions">
           <div class="small-note">
-            Random result generate hota hai – <br/>sirf practice ke liye use karein.
+            Random result generate hota hai – <br/>real money.
           </div>
           <button class="btn" id="place-bet-btn">Place Bet</button>
         </div>
@@ -530,7 +530,7 @@
 
   <script>
     // ----------------------------
-    // Demo DATA: matches & odds
+    // Real DATA: matches & odds
     // ----------------------------
     const matches = [
       {
@@ -582,7 +582,7 @@
     const placeBetBtn = document.getElementById("place-bet-btn");
     const historyListEl = document.getElementById("history-list");
     const statusMessageEl = document.getElementById("status-message");
-    const addCoinsBtn = document.getElementById("add-coins-btn");
+    const addReal MoneyBtn = document.getElementById("add-Real Money-btn");
     const resetBtn = document.getElementById("reset-btn");
 
     // Utility: update balance UI
@@ -677,11 +677,11 @@
         </div>
         <div class="betslip-row">
           <span><strong>Stake:</strong></span>
-          <span id="stake-preview">${getStake() || 0} coins</span>
+          <span id="stake-preview">${getStake() || 0} Real Money</span>
         </div>
         <div class="betslip-row">
           <span><strong>Potential Return:</strong></span>
-          <span id="potential-win">${potentialWin.toFixed(0)} coins</span>
+          <span id="potential-win">${potentialWin.toFixed(0)} Real Money</span>
         </div>
       `;
     }
@@ -704,8 +704,8 @@
       const stakePreviewEl = document.getElementById("stake-preview");
       const potentialWinEl = document.getElementById("potential-win");
       if (stakePreviewEl && potentialWinEl) {
-        stakePreviewEl.textContent = `${stake.toFixed(0)} coins`;
-        potentialWinEl.textContent = `${(stake * odds).toFixed(0)} coins`;
+        stakePreviewEl.textContent = `${stake.toFixed(0)} Real Money`;
+        potentialWinEl.textContent = `${(stake * odds).toFixed(0)} Real Money`;
       }
       clearStatus();
     });
@@ -720,15 +720,15 @@
 
       const stake = getStake();
       if (stake <= 0) {
-        showStatus("Stake kam se kam 10 coins honi chahiye.", "error");
+        showStatus("Stake kam se kam 10 Real Money honi chahiye.", "error");
         return;
       }
       if (stake < 10) {
-        showStatus("Minimum stake 10 coins hai.", "error");
+        showStatus("Minimum stake 10 Real Money hai.", "error");
         return;
       }
       if (stake > balance) {
-        showStatus("Itne coins aapke balance me nahi hain.", "error");
+        showStatus("Itne Real Money aapke balance me nahi hain.", "error");
         return;
       }
 
@@ -751,7 +751,7 @@
 
       showStatus(
         won
-          ? `🎉 Bet WON! Aapko approx ${winAmount.toFixed(0)} coins mile.`
+          ? `🎉 Bet WON! Aapko approx ${winAmount.toFixed(0)} Real Money mile.`
           : "❌ Bet LOST! Agli baar koshish karein.",
         won ? "success" : "error"
       );
@@ -824,23 +824,23 @@
             <span>Outcome: ${item.outcome} @ ${item.odds.toFixed(2)}</span>
           </div>
           <div class="history-meta">
-            <span>Stake: ${item.stake.toFixed(0)} coins</span>
-            <span>${item.won ? "Return" : "Lost"}: ${item.won ? item.winAmount.toFixed(0) : item.stake.toFixed(0)} coins</span>
+            <span>Stake: ${item.stake.toFixed(0)} Real Money</span>
+            <span>${item.won ? "Return" : "Lost"}: ${item.won ? item.winAmount.toFixed(0) : item.stake.toFixed(0)} Real Money</span>
           </div>
           <div class="history-meta">
             <span>Time: ${item.time}</span>
-            <span>Balance after: ${item.balanceAfter.toFixed(0)} coins</span>
+            <span>Balance after: ${item.balanceAfter.toFixed(0)} Real Money</span>
           </div>
         `;
         historyListEl.appendChild(div);
       });
     }
 
-    // Add coins for testing
-    addCoinsBtn.addEventListener("click", () => {
+    // Add Real Money for testing
+    addReal MoneyBtn.addEventListener("click", () => {
       balance += 500;
       updateBalance();
-      showStatus("500 coins add kar diye gaye.", "success");
+      showStatus("500 Real Money add kar diye gaye.", "success");
     });
 
     // Reset
