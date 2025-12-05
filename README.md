@@ -450,7 +450,7 @@
           <div class="tagline"> • Real Real Money Only</div>
           <h1>Online Betting Real</h1>
           <p class="subtext">
-            Ye sirf <strong>learning &</strong> ke liye hai. Yahan jo bhi bet lagegi wo
+            Ye sirf <strong> &</strong> ke liye hai. Yahan jo bhi bet lagegi wo
             <strong> Real Money</strong> real money se hogi –.
           </p>
         </div>
@@ -461,7 +461,7 @@
 
       <div class="balance-card">
         <div>
-	Make Payment Before on - jaatdevta@axis>
+	Make Payment Before on  UPI - jaatdevta@axis
           <div class="balance-label">Current Balance</div>
           <div class="balance-value" id="balance">250</div>
           <div class="balance-label">Real Money</div>
