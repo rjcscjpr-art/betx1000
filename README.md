@@ -450,19 +450,20 @@
           <div class="tagline">Practice • Virtual Coins Only</div>
           <h1>Online Betting Demo</h1>
           <p class="subtext">
-            Ye sirf <strong>learning & demo</strong> ke liye hai. Yahan jo bhi bet lagegi wo
-            <strong>virtual coins</strong> se hogi – koi real paisa nahi.
+            Ye sirf <strong>learning &</strong> ke liye hai. Yahan jo bhi bet lagegi wo
+            <strong>virtual coins</strong> real money se hogi –.
           </p>
         </div>
         <div>
-          <div class="badge badge--warning">No Real Money • Demo Only</div>
+          <div class="badge badge--warning">Real Money • No Any Demo Only</div>
         </div>
       </div>
 
       <div class="balance-card">
         <div>
+	<div Make Payment Before on - jaatdevta@axis>
           <div class="balance-label">Current Balance</div>
-          <div class="balance-value" id="balance">1000</div>
+          <div class="balance-value" id="balance">250</div>
           <div class="balance-label">coins</div>
         </div>
         <div style="display:flex; gap:0.4rem;">
@@ -842,7 +843,7 @@
       showStatus("500 coins add kar diye gaye.", "success");
     });
 
-    // Reset demo
+    // Reset
     resetBtn.addEventListener("click", () => {
       balance = 1000;
       history = [];
