@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BetX1000 - Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050816;
+    color: white;
+  }
+  header {
+    padding: 15px 10%;
+    background: #0b1020;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .wallet {
+    background: #00ffa9;
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: #000;
+    font-size: 13px;
+  }
+  h2 {
+    margin: 20px 10%;
+    font-size: 22px;
+    color: #00ffa9;
+  }
+  .match-card {
+    margin: 0 10% 15px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #11162a;
+    border: 1px solid #222a40;
+  }
+  .btn-bet {
+    margin-top: 10px;
+    background: #ffb347;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>BetX1000 Dashboard</div>
+  <div class="wallet">Coins: 1000</div>
+</header>
+
+<h2>Available Matches</h2>
+
+<div class="match-card">
+  IND vs AUS - Practice Match
+  <div><strong>Odds:</strong> 1.65</div>
+  <button class="btn-bet">Place Demo Bet</button>
+</div>
+
+<div class="match-card">
+  RCB vs MI - Virtual League
+  <div><strong>Odds:</strong> 1.80</div>
+  <button class="btn-bet">Place Demo Bet</button>
+</div>
+
+<div class="match-card">
+  CSK vs GT - Practice Only
+  <div><strong>Odds:</strong> 1.90</div>
+  <button class="btn-bet">Place Demo Bet</button>
+</div>
+
+</body>
+</html>
